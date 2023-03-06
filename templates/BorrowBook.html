@@ -1,0 +1,73 @@
+{% include "Base.html" %}
+<html>
+   <head>
+      <style>
+         body{
+         background-color: #ededed;
+         color: black;
+         font-size: x-large;
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         font-weight: bold;        
+         }
+         .form{
+         margin: 30px 300px 30px 400px;
+         padding:200px
+         }
+         .form>input{
+         margin: 20px;
+         margin-right: 5px;
+         padding: 5px;
+         border: solid 2px black;
+         }
+         #btn{
+         background-color: #ffa200;
+         color: white;
+         font-size: 30px;
+         font-weight: bold;
+         margin-left: 190px;
+         border: solid 2px #ffa200;
+         border-radius: 15px;
+         width: 250px;
+         height: 50px;
+         cursor: pointer;
+         }   
+         #btn:hover{
+         color: black;
+         border: solid 2px black;
+         }
+         .hr{
+         background-color: black;
+         border: solid 2px black;
+         }
+         input{
+            width: 600px;
+            height: 80px;
+            font-size:29px;
+         }
+      </style>
+   </head>
+   <body>
+      {% block content %}
+      <form  action="{% url 'BorrowBook' %}"  class="form" method="POST">
+         {% csrf_token %}
+         <span class="title" style="font-size: xx-large;">Borrow Book</span><br>
+         <hr class="hr">
+         <p>{% if messages %}
+         {% for message in messages %}
+         {{ message }}
+         </p>
+         {% endfor %}
+         {% endif %}
+         <label>E-Mail</label>
+         <input type="email" name="email" placeholder="Enter Your E-Mail" style="margin-left: 117px;" required><br><br>
+         <label>Title</label>
+         <input type="text" name="title" placeholder="Enter Book Title" style="margin-left: 140px;" required><br><br>
+         <label>Take On</label>
+         <input type="date" name="takeOn" style="margin-left: 100px;" required><br><br>
+         <label>Return On</label>
+         <input type="date" name="returnOn" style="margin-left: 74px;" required><br><br>
+         <input type="submit" name="confirm" value="Confirm" id="btn">
+      </form>
+      {% endblock content %}
+   </body>
+</html>

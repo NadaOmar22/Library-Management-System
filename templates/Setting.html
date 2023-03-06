@@ -1,0 +1,66 @@
+{% include "Base.html" %}
+<html>
+   <head>
+      <style>
+         #form{
+         font-size: 30px;
+         text-align : center;
+         margin-top: 100px;
+         margin-bottom: 4px;
+         margin: auto;
+         width: 30%;
+         height:60%;
+         border: 4px solid #DEB887;
+         padding: 50px;
+         }
+         input{
+         width:600px;
+         height:66px;
+         margin-top: 0px;
+         margin-bottom: 5px;
+         font-size:25px;
+         padding:18px
+         }
+         .submit:hover {
+         color: black;
+         border: solid 2px black;
+         }
+         .submit {
+         background-color: #ffa200;
+         width:500px;
+         height:65px;
+         color: white;
+         font-size: 30px;
+         font-weight: bold;
+         border: solid 2px #ffa200;
+         border-radius: 15px;
+         width: 250px;
+         height: 50px;
+         cursor: pointer;
+         }
+         p{
+         font-size:25px;
+         font-style:italic;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="form">
+         <form action="{% url 'Edit' %}"   method="POST">
+            {% csrf_token %}
+            {% if messages %}
+            {% for message in messages %}
+            {{ message }}
+            </p>
+            {% endfor %}
+            {% endif %}
+            <label>Update and Edit your  information </label><br><br>
+            <input type="text" name="currentemail" placeholder="CurrentEmail"><br><br>
+            <input type="text"   name="newUserName"  placeholder="UpdateUserName"><br><br>
+            <input type="text"   name="newEmail" placeholder="UpdateEmail"><br><br>
+            <input type="text"   name="newPassword" placeholder="UpdatePassword"><br><br>
+            <input type="text"   name="newPhone" placeholder="UpdatePhone"><br><br>
+            <input type="submit" class="submit" value="Edit" name="EDIT">
+         </form>
+      </div>
+   </body>

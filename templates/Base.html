@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+   <!--front head-->
+   {% load static %}
+   <head>
+      <meta charset="utf-8" />
+      <title>Library System</title>
+      <!--discription-->
+      <meta
+         name="discription"
+         content="This is an online library system website to buy book at prices,
+         Order Now !! What are you waiting for ??"
+         />
+      <!--CSS files-->
+      <link rel="stylesheet" href="{% static 'css/NavBarStyle.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+   </head>
+   <!--back head-->
+   <!--front body-->
+   <body>
+      <!--Navigation Bar-->
+      <nav>
+         <ul style="height: 2150px; width: 15%;">
+            <br />
+            <br />
+            <img src="{% static 'images/Logo_Icon.png' %}" class="logo" />
+            <br />
+            <br />
+            <li class="list">
+               <a href="{%url 'HomePage'%}" class="link">
+               <span> <i class="fa fa-home" aria-hidden="true"></i>Home </span>
+               </a>
+               <br />
+               <br />
+            </li>
+            <li class="list">
+               <a href="{%url 'Books'%}" class="link">
+               <span> <i class="fa fa-list" aria-hidden="true"></i>All Books </span>
+               </a>
+               <br />
+               <br />
+            </li>
+            <li class="list">
+               <a href="{%url 'BookSearch'%}" class="link">
+               <span> <i class="fa fa-search" aria-hidden="true"></i>Search Book </span>
+               </a>
+               <br />
+               <br />
+            </li>
+            <li class="list">
+               <a href="{%url 'BorrowBook'%}" class="link">
+               <span> <i class="fa fa-book" aria-hidden="true"></i>Borrow Book </span>
+               </a>
+               <br />
+               <br />
+            </li>
+            <li class="list">
+               <a href="{%url 'Edit'%}" class="link">
+               <span> <i class="fa fa-cog" aria-hidden="true"></i>Edit Info </span>
+               </a>
+               <br />
+               <br />
+            </li>
+            <li class="list">
+               <a href="{%url 'logout'%}" class="link">
+               <span> <i class="fa fa-sign-out" aria-hidden="true"></i>Logout </span>
+               </a>
+               <br />
+               <br />
+            </li>
+         </ul>
+      </nav>
+      <br />
+      <!--Selected Element-->
+      <script>
+         let list = document.querySelectorAll(".list");
+         for (let i = 0; i < list.length; i++) {
+             list[i].onclick = function () {
+                 let j = 0;
+                 while (j < list.length) {
+                     list[j++].className = "list";
+                 }
+                 list[i].className = "list active";
+             };
+         }
+      </script>
+   </body>
+   <!--back body-->
+</html>
+{% block content %}{% endblock %}

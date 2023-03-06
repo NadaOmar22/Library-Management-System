@@ -1,0 +1,77 @@
+<html>
+   <head>
+      <style>
+         #form{
+         font-size: 30px;
+         text-align : center;
+         margin-top: 200px;
+         margin-bottom: 25px;
+         margin: auto;
+         width: 30%;
+         height:60%;
+         border: 4px solid #DEB887;
+         padding: 150px;
+         }
+         input{
+         width:800px;
+         height:75px;
+         font-size:29px;
+         }
+         #submit:hover {
+         background-color:#E0EF82;
+         }
+         #submit {
+         background-color: #70D245;
+         width:700px;
+         height:75px;
+         }
+         ::-webkit-input-placeholder { 
+         font-size:26px;
+         color: #999999;
+         }
+         input[value="SignUp"]
+         {
+         font-size:24px;
+         }
+         input[value="Back"]
+         {
+         font-size:24px;
+         }
+         #test{
+         font-size:50px;
+         font-style:italic;
+         text-align : center;
+         width: 100%;
+         height:20%;
+         border: 3px solid green;
+         padding: 10px;
+         background-color:#DEB887;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="test">
+         <p >Regeration Form To Cairo University Library</p>
+         <br><br>
+      </div>
+      <br><br><br>
+      <div id="form">
+         <form action="{% url 'signup' %}"   method="POST">
+            {% csrf_token %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>
+               {{ message }}
+            </p>
+            {% endfor %}
+            {% endif %}
+            <input type="text"   name="USERNAME"  maxlength="30"   placeholder="Username" ><br><br>
+            <input type="text" name="EMAIL" placeholder="Email"><br><br>
+            <input type="Password" name="PASSWORD"  maxlength="30" placeholder="Password"><br><br>
+            <input type="text" name="PHONE" placeholder="Phone"><br><br>
+            <input  type='submit' id="submit"  name="SignUp" value="SignUp" ><br><br>
+            <input  type='submit' id="submit"  name="Back" value="Back" >
+         </form>
+      </div>
+   </body>
+</html>

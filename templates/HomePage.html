@@ -1,0 +1,25 @@
+{% include "Base.html" %}
+<html>
+   <head>
+      <style>
+         div{
+         color: #00000;
+         font-size: 60px;
+         position: absolute;
+         left: 900px;
+         top: 500px;
+         test-align:center;
+         }
+      </style>
+   </head>
+   <body>
+      {%block content%}
+      <div class="dd"></div>
+      <div>
+         <p>
+            Welcome To Cairo University Library
+         </p>
+      </div>
+      {% endblock content %}
+   </body>
+</html>

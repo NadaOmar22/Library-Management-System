@@ -1,0 +1,46 @@
+{% include "Base.html" %}
+<html>
+   <head>
+      <style>
+         .taplestyle{
+         border:1px solid #ffa200;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top:8% 
+         }
+         td,tr,th{
+         font-family: Tahoma;
+         font-size: 50px;
+         padding:20px 15px 0 15px;
+         }
+         h1{
+         font-size: xx-large;
+         margin-top:5% 
+         }
+         hr{
+         background-color: black;
+         border: solid 2px black;
+         }
+      </style>
+   </head>
+   <body>
+      <h1  style="font-size: xx-large;">All Book Available</h1><hr>
+      <table class="taplestyle">
+        
+         <tr>
+            <th class="taplestyle">Title</th>
+            <th class="taplestyle">BookISBN</th>
+            <th class="taplestyle">Releaseyear</th>
+            <th class="taplestyle">Author</th>
+         </tr>
+         {%for book in bookdisplay%}
+         <tr>
+            <td class="taplestyle">{{book.Tittle}}</td>
+            <td class="taplestyle">{{book.ISBN}}</td>
+            <td class="taplestyle">{{book.PublicationYear}}</td>
+            <td class="taplestyle">{{book.Author}}</td>
+         </tr>
+   </body>
+   {% endfor %}
+   </table>
+</html>
